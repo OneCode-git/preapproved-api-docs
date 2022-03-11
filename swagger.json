@@ -1,0 +1,55 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "customer"
+    },
+    "basePath": "/",
+    "paths": {
+      "/customer/preapproved": {
+        "get": {
+          "summary": "check if given phone number is preapproved or not",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "phoneNumber",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "true or false based on customer is preapproved or not",
+              "schema": {
+                "type": "string",
+                "example":"true"
+              }
+            },
+            "204": {
+                "description": "customer phone number has not found in records"
+              },
+
+            "403":{
+                "description": "Authorization error"
+            },
+            "404":{
+                "description": "Authentication error"
+            }
+            
+          }
+        }
+      }
+    },
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ]
+  }
